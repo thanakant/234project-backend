@@ -25,4 +25,7 @@ public class SaleTransaction {
     @OneToOne (fetch = FetchType.EAGER)
     Product product;
     int amount;
+
 }
+
+

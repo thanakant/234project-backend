@@ -9,4 +9,5 @@ public interface SaleOrderService {
     SaleOrder addSaleOrder(SaleOrder order);
     List<SaleOrder> getSaleOrders();
     double getAverageSaleOrderPrice();
+
 }
