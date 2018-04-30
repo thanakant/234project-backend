@@ -72,4 +72,15 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public Product(String Pid,String Pname, String Pdes, String Pimage, double Pprice){
+        this.productId = productId;
+        this.name=Pname;
+        this.description = Pdes;
+        this.imageLocation = Pimage;
+        this.price = price;
+    }
+
+
+
 }
