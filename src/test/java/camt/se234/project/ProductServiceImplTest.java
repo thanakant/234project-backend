@@ -26,7 +26,15 @@ public class ProductServiceImplTest {
         productService.setProductDao(productDao);
     }
 
+    @Test
+    public void  testGetAllProducts() {
 
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product("p01","SampleP","This one used for test","image",30.25));
+        mockProducts.add(new Product("p021","SampleP2","This one used for test","image2",0.25));
+        when(productDao.getProducts()).thenReturn(mockProducts);
+        assertThat(productService.getAllProducts(),hasItems(new Product("p01","SampleP","This one used for test","image",30.25),new Product("p021","SampleP2","This one used for test","image2",0.25)));
+    }
 
 
 }
