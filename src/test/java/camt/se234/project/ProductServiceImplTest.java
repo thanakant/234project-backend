@@ -39,12 +39,24 @@ public class ProductServiceImplTest {
     @Test
     public void testGetAvailableProducts(){
         List<Product> mockProducts = new ArrayList<>();
-        mockProducts.add(new Product("p001","SampleProduct1","This one used for test","image",30.25));
-        mockProducts.add(new Product("p002","SampleProduct2","This one used for test","image",0.25));
-        mockProducts.add(new Product("p003","SampleProduct3","This one used for test","image",0.00));
-        mockProducts.add(new Product("p004","SampleProduct4","This one used for test","image",-1.05));
+        mockProducts.add(new Product("p001","SampleProductWithValueMoreThanZero","This one used for test","image",30.25));
+        mockProducts.add(new Product("p002","SampleProductWithValueMoreThanZero2","This one used for test","image",0.25));
+        mockProducts.add(new Product("p003","SampleProductWithValueEqualToZero","This one used for test","image",0.00));
+        mockProducts.add(new Product("p004","SampleProductWithValueLessThanZero","This one used for test","image",-1.05));
         when(productDao.getProducts()).thenReturn(mockProducts);
-        assertThat(productService.getAvailableProducts(),hasItems(new Product("p001","SampleProduct1","This one used for test","image",30.25), new Product("p002","SampleProduct2","This one used for test","image",0.25)));
+        assertThat(productService.getAvailableProducts(),hasItems(new Product("p001","SampleProductWithValueMoreThanZero","This one used for test","image",30.25), new Product("p002","SampleProductWithValueMoreThanZero2","This one used for test","image",0.25)));
+
+    }
+
+    @Test
+    public void testGetUnavailableProductSize(){
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product("p1","SampleProductWithValueMoreThanZero","This one used for test","image",25.25));
+        mockProducts.add(new Product("p2","SampleProductWithValueEqualToZero","This one used for test","image",0.0));
+        mockProducts.add(new Product("p3","SampleProductWithValueLessThanZero","This one used for test","image",-2.05));
+        when(productDao.getProducts()).thenReturn(mockProducts);
+        assertThat(productService.getUnavailableProductSize(),is(2));
+
 
     }
 
