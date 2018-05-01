@@ -73,11 +73,11 @@ public class Product {
         this.price = price;
     }
 
-    public Product(String Pid,String Pname, String Pdes, String Pimage, double Pprice){
+    public Product(String productId,String name, String description, String imageLocation, double price){
         this.productId = productId;
-        this.name=Pname;
-        this.description = Pdes;
-        this.imageLocation = Pimage;
+        this.name=name;
+        this.description = description;
+        this.imageLocation = imageLocation;
         this.price = price;
     }
 

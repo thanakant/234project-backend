@@ -36,5 +36,17 @@ public class ProductServiceImplTest {
         assertThat(productService.getAllProducts(),hasItems(new Product("p01","SampleP","This one used for test","image",30.25),new Product("p021","SampleP2","This one used for test","image2",0.25)));
     }
 
+    @Test
+    public void testGetAvailableProducts(){
+        List<Product> mockProducts = new ArrayList<>();
+        mockProducts.add(new Product("p001","SampleProduct1","This one used for test","image",30.25));
+        mockProducts.add(new Product("p002","SampleProduct2","This one used for test","image",0.25));
+        mockProducts.add(new Product("p003","SampleProduct3","This one used for test","image",0.00));
+        mockProducts.add(new Product("p004","SampleProduct4","This one used for test","image",-1.05));
+        when(productDao.getProducts()).thenReturn(mockProducts);
+        assertThat(productService.getAvailableProducts(),hasItems(new Product("p001","SampleProduct1","This one used for test","image",30.25), new Product("p002","SampleProduct2","This one used for test","image",0.25)));
+
+    }
+
 
 }
