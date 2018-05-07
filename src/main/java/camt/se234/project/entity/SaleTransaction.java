@@ -26,9 +26,8 @@ public class SaleTransaction {
     Product product;
     int amount;
 
-    public SaleTransaction(String transactionId, Long id, SaleOrder order, Product product,int amount){
+    public SaleTransaction(String transactionId, SaleOrder order, Product product,int amount){
         this.transactionId = transactionId;
-        this.id = id;
         this.order = order;
         this.product = product;
         this.amount = amount;
