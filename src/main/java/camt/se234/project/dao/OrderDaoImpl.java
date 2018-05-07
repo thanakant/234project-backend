@@ -12,6 +12,7 @@ import java.util.stream.StreamSupport;
 @Repository
 public class OrderDaoImpl implements OrderDao {
     OrderRepository orderRepository;
+
     @Autowired
     public void setOrderRepository(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
@@ -24,7 +25,9 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public List<SaleOrder> getOrders() {
-        return StreamSupport.stream(orderRepository.findAll().spliterator(),false)
+        return StreamSupport.stream(orderRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList());
     }
-}
+
+    }
+
