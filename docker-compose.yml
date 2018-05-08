@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   backend:
-    image: dto80/234-lab11:latest
+    image: getgorok/234project-backend:latest
     ports:
      - "8090:8080"
     
@@ -9,7 +9,7 @@ services:
     image: dto80/project234-frontend
     ports:
      - "8091:80"
-     volumes:
+    volumes:
      - type: bind
        source: ./setting
        target: /usr/share/nginx/html/assets
