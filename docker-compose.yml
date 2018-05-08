@@ -4,7 +4,6 @@ services:
     image: getgorok/234project-backend:latest
     ports:
      - "8090:8080"
-    
   frontend:
     image: dto80/project234-frontend
     ports:
