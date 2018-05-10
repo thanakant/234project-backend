@@ -8,6 +8,7 @@ before_install:
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 - chmod +x mvnw
 install:
+- mvn -N io.takari:maven:wrapper
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
 - docker build --build-arg JAR_FILE=/target/project.jar -t $DOCKER_USERNAME/234project-backend  .
